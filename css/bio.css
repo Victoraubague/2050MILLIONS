@@ -1,0 +1,7 @@
+@import url('../css/home.css');
+
+.about-me-img {
+    width: 60%;
+    display: flex;
+    margin: 2vh auto;
+}

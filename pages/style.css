@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #151912;
+    overflow-x: hidden; /* Empêcher le débordement horizontal */
+    overflow-y: auto; /* Permettre le défilement vertical */
+}
+
+.content {
+    width: 100vw;
+    font-family: 'Times New Roman', serif;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    width: 100%;
+    min-height: 100vh; /* Ensure sections take at least one viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF6F7;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.section > div {
+    width: 90%;
+}
+
+
+
+
+
+
+canvas#neuro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: .95;
+    z-index: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+a:hover {
+    font-weight: inherit;
+    text-decoration: none;
+    color: rgb(160, 160, 255);
+}
+
+a:active {
+    color: rgb(160, 255, 255);
+}

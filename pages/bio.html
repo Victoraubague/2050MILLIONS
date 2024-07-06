@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>2050Millions</title>
+	<link rel="stylesheet" href="../css/bio.css" />
+	<script defer src="../js/home.js"></script>
+    <script defer src="../js/main.js"></script>
+
+	<link rel="stylesheet" href="../pages/style.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+			<a href="../index.html"><img src="../images/sarthakkmusic_white.gif" class="logo" /></a>
+			<nav class="nav">
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../pages/bio.html">Bio</a></li>
+					<li><a href="../pages/music.html">Music</a></li>
+				</ul>
+			</nav>
+			<div class="menu" id="menu-btn">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+		</div>
+		<nav class="new-nav" id="mob-nav">
+			<ul class="ul-new-nav">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../pages/bio.html">Bio</a></li>
+				<li><a href="../pages/music.html">Music</a></li>
+			</ul>
+		</nav>
+
+		<!-- Bio Section -->
+		<div class="section">
+			<div>
+				<img src="https://pbs.twimg.com/media/Feum7eiX0AAfeP0?format=jpg&name=large" alt="about-me" class="about-me-img">
+				<h1>
+					2050 <span>M</span><span>I</span><span>L</span><span>L</span><span>I</span><span>O</span><span>N</span><span>S</span>
+				</h1>
+				<p>
+					2050 Millions est un artiste hip-hop ivoirien qui se distingue par sa capacité à fusionner des sons modernes avec des influences musicales ivoiriennes reconnu pour sa polyvalence, il crée un espace unique pour évoluer dans l'industrie musicale 2050 Millions a sorti deux projets majeurs : Painkilla et une collaboration mémorable avec le rappeur français Sofiane sur le titre « #JesuisPasséChezSo épisode 10 "X" », qui lui a valu le prestigieux DISQUE D'OR en tant que beatmaker, 2050 Millions produit la majorité de ses morceaux, montrant une maîtrise totale de son art il a enregistré et arrangé l'intégralité de son album Painkilla lui-même, prouvant ainsi son dévouement et sa détermination en plus de son disque d'or, 2050 Millions a été mis en avant sur des plateformes influentes et des médias prestigieux, ce qui témoigne de son talent et de son impact dans le monde du rap sur son album Painkilla, il a travaillé avec des artistes tels que @diane.chtln_, Vax, et Chinoisl Apocalypse, enrichissant son projet avec des contributions variées et talentueuses 2050 Millions, jeune et innovant, continue d'influencer la scène musicale avec son son distinctif et ses techniques de création uniques son engagement envers son art est évident, et il est certain qu'il continuera à laisser une marque indélébile dans le monde de la musique
+				</p>
+			</div>
+		</div>
+
+		<!-- Footer Section -->
+		<div class="footer">
+			<footer>
+				<div class="footdiv">
+					<div class="row justify-content-center">
+						<div class="footer-col">
+							<h3>About</h3>
+							<ul>
+								<li><a href="bio.html">Bio</a></li>
+								<li><a href="music.html">Music</a></li>
+								<li><a href="index.html">Home</a></li>
+							</ul>
+						</div>
+						<div class="footer-col">
+							<h3>Socials</h3>
+							<ul>
+								<li><a href="https://www.instagram.com/2050millions/">Instagram</a></li>
+								<li><a href="https://x.com/2050millions">Twitter</a></li>
+								<li><a href="https://t.co/ZfYYnuJrEL">FANLINK</a></li>
+							</ul>
+						</div>
+						<p class="copyright">Luvasco © 2024</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<canvas id="neuro"></canvas>
+
+		<script type="x-shader/x-fragment" id="vertShader">
+			precision mediump float;
+
+			varying vec2 vUv;
+			attribute vec2 a_position;
+
+			void main() {
+				vUv = .5 * (a_position + 1.);
+				gl_Position = vec4(a_position, 0.0, 1.0);
+			}
+		</script>
+
+		<script type="x-shader/x-fragment" id="fragShader">
+			precision mediump float;
+
+			varying vec2 vUv;
+			uniform float u_time;
+			uniform float u_ratio;
+			uniform vec2 u_pointer_position;
+			uniform float u_scroll_progress;
+
+			vec2 rotate(vec2 uv, float th) {
+				return mat2(cos(th), sin(th), -sin(th), cos(th)) * uv;
+			}
+
+			float neuro_shape(vec2 uv, float t, float p) {
+				vec2 sine_acc = vec2(0.);
+				vec2 res = vec2(0.);
+				float scale = 8.;
+
+				for (int j = 0; j < 15; j++) {
+					uv = rotate(uv, 1.);
+					sine_acc = rotate(sine_acc, 1.);
+					vec2 layer = uv * scale + float(j) + sine_acc - t;
+					sine_acc += sin(layer);
+					res += (.5 + .5 * cos(layer)) / scale;
+					scale *= (1.2 - .07 * p);
+				}
+				return res.x + res.y;
+			}
+
+			void main() {
+				vec2 uv = .5 * vUv;
+				uv.x *= u_ratio;
+
+				vec2 pointer = vUv - u_pointer_position;
+				pointer.x *= u_ratio;
+				float p = clamp(length(pointer), 0., 1.);
+				p = .5 * pow(1. - p, 2.);
+
+				float t = .001 * u_time;
+				vec3 color = vec3(0.);
+
+				float noise = neuro_shape(uv, t, p);
+
+				noise = 1.2 * pow(noise, 3.);
+				noise += pow(noise, 10.);
+				noise = max(.0, noise - .5);
+				noise *= (1. - length(vUv - .5));
+
+				color = normalize(vec3(.2, .5 + .4 * cos(3. * u_scroll_progress), .5 + .5 * sin(3. * u_scroll_progress)));
+
+				color = color * noise;
+
+				gl_FragColor = vec4(color, noise);
+			}
+		</script>
+
+		<script>
+		document.getElementById('menu-btn').addEventListener('click', function() {
+			var nav = document.getElementById('mob-nav');
+			nav.classList.toggle('active');
+			this.classList.toggle('change'); // To animate the burger icon
+		});
+		</script>
+		<script src="../js/home.js"></script>
+
+</body>
+
+</html>
