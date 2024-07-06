@@ -1,2 +1,20 @@
 # 2050MILLIONS
-Ce projet est un site web dédié à la mise en valeur d'un rappeur, offrant une plateforme interactive et visuellement attrayante pour présenter sa biographie, sa discographie, 
+Salut ! Pendant mon temps libre, j'ai décidé de créer un site web pour promouvoir l'artiste ivoirien 2050Millions. Ce projet m'a permis de combiner ma passion pour le développement web et la musique. Je voulais un site moderne et réactif, accessible sur tous les appareils, pour mettre en avant le talent de 2050Millions.
+
+Fonctionnalités
+Design Responsive : Le site s'adapte parfaitement à toutes les tailles d'écran, des smartphones aux ordinateurs de bureau.
+Navigation Simple et Intuitive : Une barre de navigation claire pour trouver facilement les différentes sections du site.
+Intégration des Médias Sociaux : Liens vers les réseaux sociaux de 2050Millions pour suivre ses dernières actualités.
+Streaming Direct : Écoutez la musique de 2050Millions directement sur Spotify, Apple Music, Prime Music, YouTube Music, et Deezer.
+Page Biographie : Découvrez le parcours et les réalisations de 2050Millions.
+Galerie Vidéo : Visionnez les clips et interviews directement intégrés depuis YouTube.
+
+Technologies Utilisées
+HTML5 : Pour une structure de page sémantique.
+CSS3 : Pour le design et les animations.
+JavaScript : Pour l'interactivité et le dynamisme.
+Frameworks et Libraries : Utilisation de librairies CSS et JS pour améliorer l'expérience utilisateur.
+
+Contact
+Pour toute question ou juste pour discuter, vous pouvez me joindre à victor.aubague@gmail.com
+
