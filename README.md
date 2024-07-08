@@ -21,3 +21,5 @@ Pour toute question ou juste pour discuter, vous pouvez me joindre à victor.aub
 ![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/42fc7ec5-ec67-4852-b5b2-e2f6249294ba)
 ![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/0b09fc43-1425-4e71-b821-2291ce41f788)
 ![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/2df99d33-bfd9-45a8-a172-1958235adeaa)
+![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/e2538b41-6368-45dd-bd67-b7a26e60f83b)
+![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/6db766e9-fccd-4ec8-9dfd-649fa745d516)
