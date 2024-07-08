@@ -18,3 +18,6 @@ Frameworks et Libraries : Utilisation de librairies CSS et JS pour améliorer l'
 Contact
 Pour toute question ou juste pour discuter, vous pouvez me joindre à victor.aubague@gmail.com
 
+![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/42fc7ec5-ec67-4852-b5b2-e2f6249294ba)
+![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/0b09fc43-1425-4e71-b821-2291ce41f788)
+![image](https://github.com/Victoraubague/2050MILLIONS/assets/153274832/2df99d33-bfd9-45a8-a172-1958235adeaa)
